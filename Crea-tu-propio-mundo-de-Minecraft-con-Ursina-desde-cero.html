@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Crea tu propio mundo de Minecraft con Ursina desde cero</title>
+    
+    <meta name="description" content="Explora el universo de Ursina y crea tu propio mundo en Minecraft desde cero. Este tutorial te lleva desde la generación de terreno hasta detalles interactivos, sin necesidad de experiencia previa. Despierta tu creatividad con Ursina y da vida a tus ideas en el fascinante universo de Minecraft. ¡Sumérgete en la diversión de la creación ahora mismo!">
+    <meta name="keywords" content="Ursina Minecraft, Creación Mundo Minecraft, Tutorial Ursina">
+    <meta name="author" content="EveryThing">
+    
+    <link rel="icon" href="img/logo.ico" type="image/png">
+    <link rel="canonical" href="https://everythg.000webhostapp.com/">
+    <link rel="alternate" hreflang="es" href="https://everythg.000webhostapp.com/">
+    <link rel="alternate" hreflang="en" href="https://everythg.000webhostapp.com/">
+    
+    <meta property="og:title" content="Crea tu propio mundo de Minecraft con Ursina desde cero">
+    <meta property="og:description" content="Explora el universo de Ursina y crea tu propio mundo en Minecraft desde cero. Este tutorial te lleva desde la generación de terreno hasta detalles interactivos, sin necesidad de experiencia previa. Despierta tu creatividad con Ursina y da vida a tus ideas en el fascinante universo de Minecraft. ¡Sumérgete en la diversión de la creación ahora mismo!">
+    <meta property="og:url" content="https://everythg.000webhostapp.com/">
+    <meta property="og:image" content="img/mas.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Crea tu propio mundo de Minecraft con Ursina desde cero">
+    <meta name="twitter:description" content="Explora el universo de Ursina y crea tu propio mundo en Minecraft desde cero. Este tutorial te lleva desde la generación de terreno hasta detalles interactivos, sin necesidad de experiencia previa. Despierta tu creatividad con Ursina y da vida a tus ideas en el fascinante universo de Minecraft. ¡Sumérgete en la diversión de la creación ahora mismo!">
+    <meta name="twitter:image" content="img/mas.jpg">
+    <meta name="robots" content="index, follow"> 
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/articulos.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+</head>
+
+<body>
+
+    <!--Header - menu-->
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+                <h1>Every<b>Thing</b></h1>
+            </div>
+
+            <div class="menu" id="show-menu">
+
+                <nav>
+                    <ul>
+                        <li><a href="https://everythg.000webhostapp.com/"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCYmZ8F-o6VpZqQbUV7Ssq4g" target="_blank"><i class="fab fa-youtube"> </i>Tutoriales</a></li>
+                        <li><a href="mailto:ltavo15963@gmail.com?subject=Asunto%20del%20mensaje" target="_blank"><i class="fas fa-headset"></i> Contacto</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+
+        <div id="icon-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </header>
+
+    <!--Portada-->
+
+    <div class="container-all" id="move-content">
+
+    
+    <div class="article-container-cover">
+        <div class="container-info-cover">
+            <h1>¡Todo es posible!</h1>
+            <p>Explora el universo de Ursina y crea tu propio mundo en Minecraft desde cero.</p>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <article>
+            <h1>Crea tu propio mundo de Minecraft con Ursina desde cero</h1>
+            <div class="videoContainer">
+                <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/n0BsB-IzHno"
+                    title="Video de YouTube"
+                    frameborder="0"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div class="g-ytsubscribe" data-channelid="UCYmZ8F-o6VpZqQbUV7Ssq4g" data-layout="full" data-count="default"></div>
+            
+            <h2>Requisitos Previos:</h2>
+            <p>• Python instalado en tu sistema (puedes descargarlo desde python.org). <br>• Instalar Ursina: Abre tu terminal o consola y ejecuta pip install ursina</p>
+            <div id="pipCommandContainer">
+                <input type="text" id="pipCommand" class="copyCodigo" value="pip install ursina" readonly>
+                <button id="copyButton" onclick="copyToClipboard()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copyToClipboard() {
+                    var pipCommandInput = document.getElementById("pipCommand");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+
+            <h2>Importar las bibliotecas necesarias:</h2>
+            <div id="pipCommandContainer">
+                <textarea id="text2" class="copyCodigo" readonly>from ursina import *
+from ursina.prefabs.first_person_controller import FirstPersonController</textarea>
+                <button id="copyButton" onclick="copiar2()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copiar2() {
+                    var pipCommandInput = document.getElementById("text2");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p><strong>Ursina:</strong> La biblioteca principal que proporciona funcionalidades para la creación de gráficos y juegos en 3D.</p>
+            <p><strong>FirstPersonController:</strong> Un prefab predefinido en Ursina que proporciona un controlador de primera persona.</p>
+
+            <h2>Inicializar la aplicación:</h2>
+            <div id="pipCommandContainer">
+                <input type="text" id="text3" class="copyCodigo" value="app = Ursina()" readonly>
+                <button id="copyButton" onclick="copiar3()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copiar3() {
+                    var pipCommandInput = document.getElementById("text3");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p><strong>Ursina()</strong> inicializa la aplicación. Es necesario para que Ursina funcione correctamente.</p>
+
+            <h2>Crear un modelo de escena:</h2>
+            <div id="teclasSonidosContainer">
+                <textarea id="text4" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar4()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var teclasSonidosTexto = `model = Entity(model='scene.gltf', collider="mesh", position=(0, 0, 0), scale=1)`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var teclasSonidosInput = document.getElementById("text4");
+                teclasSonidosInput.value = teclasSonidosTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                teclasSonidosInput.style.height = teclasSonidosInput.scrollHeight + 'px';
+        
+                function copiar4() {
+                    teclasSonidosInput.select();
+                    teclasSonidosInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p><strong>Entity:</strong> Un objeto en Ursina que representa cualquier entidad en el mundo 3D.</p>
+            <p><strong>model='scene.gltf':</strong> Asigna un modelo 3D a la entidad. Asegúrate de tener un archivo de modelo glTF llamado 'scene.gltf' en tu proyecto.</p>
+            <p><strong>collider="mesh":</strong> Establece el tipo de colisionador del modelo como malla (mesh).</p>
+            <p><strong>position=(0, 0, 0):</strong> Define la posición inicial del modelo en el espacio 3D.</p>
+            <p><strong>scale=1:</strong> Establece la escala del modelo.</p>
+            
+            <h2>Crear un controlador de primera persona:</h2>
+            <div id="tecladoSonidosContainer">
+                <textarea id="text5" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar5()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var tecladoSonidosTexto = `player = FirstPersonController()`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var tecladoSonidosInput = document.getElementById("text5");
+                tecladoSonidosInput.value = tecladoSonidosTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                tecladoSonidosInput.style.height = tecladoSonidosInput.scrollHeight + 'px';
+        
+                function copiar5() {
+                    tecladoSonidosInput.select();
+                    tecladoSonidosInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p>FirstPersonController(): Crea un controlador de primera persona que permite al usuario moverse en el entorno 3D.</p>
+
+            <h2>Iniciar la aplicación:</h2>
+            <div id="tecladoSonidosContainer">
+                <textarea id="text6" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar6()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var runTexto = `app.run()`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var runInput = document.getElementById("text6");
+                runInput.value = runTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                runInput.style.height = runInput.scrollHeight + 'px';
+        
+                function copiar6() {
+                    runInput.select();
+                    runInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p><strong>app.run():</strong> Inicia la ejecución de la aplicación. Todo el código debe estar arriba de esta línea para que se ejecute correctamente.</p>
+            <p>¡¡Eso es todo! Este código básico te permitirá crear un entorno 3D con un modelo de escena y un controlador de primera persona utilizando Ursina. Asegúrate de tener el archivo de modelo 'scene.gltf' en tu proyecto y que Ursina esté instalado en tu entorno de Python.</p>
+        </article>
+
+        <div class="container-aside">	
+
+            <aside>
+                <img src="img/mas.jpg" alt="">
+                <h2>Crea tu propio mundo de Minecraft con Ursina desde cero</h2>
+                <a href="Crea-tu-propio-mundo-de-Minecraft-con-Ursina-desde-cero.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas3.jpg" alt="">
+                <h2>Crear un Reproductor de Sonidos con Python y Pygame</h2>
+                <a href="Crear-un-Reproductor-de-Sonidos-con-Python-y-Pygame.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas4.jpg" alt="">
+                <h2>Domina las Operaciones Básicas - Suma, Resta, Multiplicación y División en Tu Código</h2>
+                <a href="Domina-las-Operaciones-Basicas-Suma-Resta-Multiplicacion-y-Division-en-Tu-Codigo.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas2.jpg" alt="">
+                <h2>Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo 💻🎮</h2>
+                <a href="Desarrollando-el-Clásico-Juego-del-Gusanito-en-Python-tutorial-completo.html"><button>leer más</button></a>
+            </aside>
+
+            <!--<aside>
+                <img src="img/img4.jpg" alt="">
+                <h2>Efecto Hover en HTML, Añadiendo Movimiento y Estilo a Tu Sitio Web 🌟🚀💻</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero quo, vel officiis voluptas minima at totam provident cupiditate ad consectetur!</p>
+                <a href="#"><button>leer más</button></a>
+            </aside>-->
+
+        </div>
+    </div>
+
+    <div id="button-up">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+
+
+    <div class="container-footer">	
+
+        <footer>
+            <div class="logo-footer">
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <div class="g-ytsubscribe" data-channelid="UCYmZ8F-o6VpZqQbUV7Ssq4g" data-layout="full" data-count="default"></div>
+            </div>
+
+            <div class="redes-footer">
+                <a href="https://www.facebook.com/profile.php?id=100084146972020"><i class="fab fa-facebook-f icon-redes-footer"></i></a>
+                <a href="mailto:ltavo15963@gmail.com?subject=Asunto%20del%20mensaje" target="_blank"><i class="fab fa-google-plus-g icon-redes-footer"></i></a>
+                <a href="https://instagram.com/bymusrize?igshid=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram icon-redes-footer"></i></a>
+            </div>
+
+            <hr>
+            <h4>© 2023 EveryThing - Todos los Derechos Reservados</h4>
+
+        </footer>
+
+    </div>
+
+</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

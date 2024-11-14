@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Crear un Reproductor de Sonidos con Python y Pygame</title>
+    
+    <meta name="description" content="Crea tu propio reproductor de sonidos con Python y Pygame. Este tutorial te guía desde la carga de archivos hasta el control de la reproducción. Ideal para principiantes, explora la programación de audio de manera sencilla. ¡Sumérgete en el mundo del sonido y potencia tu conocimiento de programación!">
+    <meta name="keywords" content="Ursina Minecraft, Creación Mundo Minecraft, Tutorial Ursina">
+    <meta name="author" content="EveryThing">
+    
+    <link rel="icon" href="img/logo.ico" type="image/png">
+    <link rel="canonical" href="https://everythg.000webhostapp.com/">
+    <link rel="alternate" hreflang="es" href="https://everythg.000webhostapp.com/">
+    <link rel="alternate" hreflang="en" href="https://everythg.000webhostapp.com/">
+    
+    <meta property="og:title" content="Crear un Reproductor de Sonidos con Python y Pygame">
+    <meta property="og:description" content="Crea tu propio reproductor de sonidos con Python y Pygame. Este tutorial te guía desde la carga de archivos hasta el control de la reproducción. Ideal para principiantes, explora la programación de audio de manera sencilla. ¡Sumérgete en el mundo del sonido y potencia tu conocimiento de programación!">
+    <meta property="og:url" content="https://everythg.000webhostapp.com/">
+    <meta property="og:image" content="img/mas3.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Crear un Reproductor de Sonidos con Python y Pygame">
+    <meta name="twitter:description" content="Crea tu propio reproductor de sonidos con Python y Pygame. Este tutorial te guía desde la carga de archivos hasta el control de la reproducción. Ideal para principiantes, explora la programación de audio de manera sencilla. ¡Sumérgete en el mundo del sonido y potencia tu conocimiento de programación!">
+    <meta name="twitter:image" content="img/mas3.jpg">
+    <meta name="robots" content="index, follow"> 
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/articulos.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+    <!--Header - menu-->
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+                <h1>Every<b>Thing</b></h1>
+            </div>
+
+            <div class="menu" id="show-menu">
+
+                <nav>
+                    <ul>
+                        <li><a href="https://everythg.000webhostapp.com/"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCYmZ8F-o6VpZqQbUV7Ssq4g" target="_blank"><i class="fab fa-youtube"> </i>Tutoriales</a></li>
+                        <li><a href="mailto:ltavo15963@gmail.com?subject=Asunto%20del%20mensaje" target="_blank"><i class="fas fa-headset"></i> Contacto</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+
+        <div id="icon-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </header>
+
+    <!--Portada-->
+
+    <div class="container-all" id="move-content">
+
+    
+    <div class="article-container-cover">
+        <div class="container-info-cover">
+            <h1>¡Cada paso cuenta!</h1>
+            <p>Crea Magia con Código: Reproductor de Sonidos en Python</p>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <article>
+            <h1>Crear un Reproductor de Sonidos con Python y Pygame</h1>
+            <div class="videoContainer">
+                <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/HsmzoeAMqfY"
+                    title="Video de YouTube"
+                    frameborder="0"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div class="g-ytsubscribe" data-channelid="UCYmZ8F-o6VpZqQbUV7Ssq4g" data-layout="full" data-count="default"></div>
+            <h2>Requisitos Previos:</h2>
+            <p>• Python instalado en tu sistema (puedes descargarlo desde python.org). <br>• Instalar Pygame y keyboard: Abre tu terminal o consola y ejecuta pip install pygame keyboard. <br>• Un conjunto de archivos de sonido (puedes usar archivos MP3).</p>
+            <div id="pipCommandContainer">
+                <input type="text" id="pipCommand" class="copyCodigo" value="pip install pygame keyboard" readonly>
+                <button id="copyButton" onclick="copyToClipboard()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copyToClipboard() {
+                    var pipCommandInput = document.getElementById("pipCommand");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+
+            <h2>Paso 1: Inicializar el Proyecto</h2>
+            <p>Crea un nuevo archivo Python, por ejemplo, reproductor_sonidos.py, y ábrelo en tu editor de código preferido.</p>
+
+            <h2>Paso 2: Importar Librerías</h2>
+            <p>En este paso, importamos las librerías necesarias: pygame para el manejo del sonido y keyboard para la detección de teclas.</p>
+            <div id="pipCommandContainer">
+                <textarea id="text2" class="copyCodigo" readonly>import pygame
+import keyboard</textarea>
+                <button id="copyButton" onclick="copiar2()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copiar2() {
+                    var pipCommandInput = document.getElementById("text2");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+
+            <h2>Paso 3: Inicializar Pygame</h2>
+            <p>Inicializamos Pygame antes de utilizar cualquier función de la biblioteca.</p>
+            <div id="pipCommandContainer">
+                <input type="text" id="text3" class="copyCodigo" value="pygame.init()" readonly>
+                <button id="copyButton" onclick="copiar3()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copiar3() {
+                    var pipCommandInput = document.getElementById("text3");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+
+            <h2>Paso 4: Definir Teclas y Sonidos</h2>
+            <p>Definimos un diccionario que mapea teclas a las rutas de los archivos de sonido. Asegúrate de tener archivos de sonido en las ubicaciones especificadas.</p>
+            <div id="teclasSonidosContainer">
+                <textarea id="text4" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar4()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                var teclas_a_sonidos = {
+                    's': 'song/5592.mp3',
+                    'a': 'song/7741.mp3',
+                    'q': 'song/7739.mp3',
+                    'd': 'song/6595.mp3',
+                    'w': 'song/6586.mp3',
+                    'e': 'song/7483.mp3',
+                    'r': 'song/7756.mp3',
+                };
+        
+                // Construir la cadena con la definición del diccionario
+                var teclasSonidosTexto = 'teclas_a_sonidos = {\n';
+                for (var tecla in teclas_a_sonidos) {
+                    teclasSonidosTexto += `    '${tecla}': '${teclas_a_sonidos[tecla]}',\n`;
+                }
+                teclasSonidosTexto += '};';
+        
+                // Asignar la cadena al valor del campo de entrada
+                var teclasSonidosInput = document.getElementById("text4");
+                teclasSonidosInput.value = teclasSonidosTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                teclasSonidosInput.style.height = teclasSonidosInput.scrollHeight + 'px';
+        
+                function copiar4() {
+                    teclasSonidosInput.select();
+                    teclasSonidosInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            
+            <h2>Paso 5: Reproducir Sonidos con Pygame</h2>
+            <p>En este paso, creamos un bucle infinito que espera la pulsación de teclas específicas y reproduce los sonidos correspondientes utilizando Pygame.</p>
+            
+            <div id="tecladoSonidosContainer">
+                <textarea id="text5" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar5()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var tecladoSonidosTexto = `try:\n`;
+                tecladoSonidosTexto += `   while True:\n`;
+                tecladoSonidosTexto += `       event = keyboard.read_event()\n\n`;
+                tecladoSonidosTexto += `       if event.event_type == keyboard.KEY_DOWN and event.name in teclas_a_sonidos:\n`;
+                tecladoSonidosTexto += `           sonido = pygame.mixer.Sound(teclas_a_sonidos[event.name])\n`;
+                tecladoSonidosTexto += `           sonido.play()\n\n`;
+                tecladoSonidosTexto += `           pygame.time.delay(int(sonido.get_length() * 1000))\n\n`;
+                tecladoSonidosTexto += `except KeyboardInterrupt:\n`;
+                tecladoSonidosTexto += `    pass\n\n`;
+                tecladoSonidosTexto += `finally:\n`;
+                tecladoSonidosTexto += `    pygame.quit()`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var tecladoSonidosInput = document.getElementById("text5");
+                tecladoSonidosInput.value = tecladoSonidosTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                tecladoSonidosInput.style.height = tecladoSonidosInput.scrollHeight + 'px';
+        
+                function copiar5() {
+                    tecladoSonidosInput.select();
+                    tecladoSonidosInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <h2>Paso 6: Ejecutar el Programa</h2>
+
+            <p>Ahora, presiona las teclas definidas en el diccionario para reproducir los sonidos asociados.</p>
+            <p>¡Eso es todo! Ahora tienes un reproductor de sonidos simple y personalizable en Python utilizando Pygame y keyboard. Puedes experimentar agregando más teclas y sonidos según tus preferencias.</p>
+        </article>
+
+        <div class="container-aside">	
+
+            <aside>
+                <img src="img/mas.jpg" alt="">
+                <h2>Crea tu propio mundo de Minecraft con Ursina desde cero</h2>
+                <a href="Crea-tu-propio-mundo-de-Minecraft-con-Ursina-desde-cero.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas3.jpg" alt="">
+                <h2>Crear un Reproductor de Sonidos con Python y Pygame</h2>
+                <a href="Crear-un-Reproductor-de-Sonidos-con-Python-y-Pygame.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas4.jpg" alt="">
+                <h2>Domina las Operaciones Básicas - Suma, Resta, Multiplicación y División en Tu Código</h2>
+                <a href="Domina-las-Operaciones-Basicas-Suma-Resta-Multiplicacion-y-Division-en-Tu-Codigo.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas2.jpg" alt="">
+                <h2>Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo 💻🎮</h2>
+                <a href="Desarrollando-el-Clásico-Juego-del-Gusanito-en-Python-tutorial-completo.html"><button>leer más</button></a>
+            </aside>
+
+        </div>
+    </div>
+
+    <div id="button-up">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+
+
+    <div class="container-footer">	
+
+        <footer>
+            <div class="logo-footer">
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <div class="g-ytsubscribe" data-channelid="UCYmZ8F-o6VpZqQbUV7Ssq4g" data-layout="full" data-count="default"></div>
+            </div>
+
+            <div class="redes-footer">
+                <a href="https://www.facebook.com/profile.php?id=100084146972020"><i class="fab fa-facebook-f icon-redes-footer"></i></a>
+                <a href="mailto:ltavo15963@gmail.com?subject=Asunto%20del%20mensaje" target="_blank"><i class="fab fa-google-plus-g icon-redes-footer"></i></a>
+                <a href="https://instagram.com/bymusrize?igshid=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram icon-redes-footer"></i></a>
+            </div>
+
+            <hr>
+            <h4>© 2023 EveryThing - Todos los Derechos Reservados</h4>
+
+        </footer>
+
+    </div>
+
+</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

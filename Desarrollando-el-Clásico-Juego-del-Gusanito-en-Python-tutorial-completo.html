@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo</title>
+    
+    <meta name="description" content="Desarrolla el clásico juego del gusanito en Python con este tutorial completo. Aprende desde la creación de la serpiente hasta las mecánicas de juego. Ideal para principiantes, este tutorial te guía paso a paso. Sumérgete en el mundo de Python y construye tu propio juego. ¡Descubre la diversión de programar mientras recreas este juego atemporal!">
+    <meta name="keywords" content="Juego Gusanito Python, Desarrollo Clásico Snake, Tutorial Completo Python">
+    <meta name="author" content="EveryThing">
+    
+    <link rel="icon" href="img/logo.ico" type="image/png">
+    <link rel="canonical" href="https://everythg.000webhostapp.com/">
+    <link rel="alternate" hreflang="es" href="https://everythg.000webhostapp.com/">
+    <link rel="alternate" hreflang="en" href="https://everythg.000webhostapp.com/">
+    
+    <meta property="og:title" content="Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo">
+    <meta property="og:description" content="Desarrolla el clásico juego del gusanito en Python con este tutorial completo. Aprende desde la creación de la serpiente hasta las mecánicas de juego. Ideal para principiantes, este tutorial te guía paso a paso. Sumérgete en el mundo de Python y construye tu propio juego. ¡Descubre la diversión de programar mientras recreas este juego atemporal!">
+    <meta property="og:url" content="https://everythg.000webhostapp.com/">
+    <meta property="og:image" content="img/mas2.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo">
+    <meta name="twitter:description" content="Desarrolla el clásico juego del gusanito en Python con este tutorial completo. Aprende desde la creación de la serpiente hasta las mecánicas de juego. Ideal para principiantes, este tutorial te guía paso a paso. Sumérgete en el mundo de Python y construye tu propio juego. ¡Descubre la diversión de programar mientras recreas este juego atemporal!">
+    <meta name="twitter:image" content="img/mas2.jpg">
+    <meta name="robots" content="index, follow"> 
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/articulos.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+
+<body>
+
+    <!--Header - menu-->
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo">
+                <h1>Every<b>Thing</b></h1>
+            </div>
+
+            <div class="menu" id="show-menu">
+
+                <nav>
+                    <ul>
+                        <li><a href="https://everythg.000webhostapp.com/"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCYmZ8F-o6VpZqQbUV7Ssq4g" target="_blank"><i class="fab fa-youtube"> </i>Tutoriales</a></li>
+                        <li><a href="mailto:ltavo15963@gmail.com?subject=Asunto%20del%20mensaje" target="_blank"><i class="fas fa-headset"></i> Contacto</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+        </div>
+
+        <div id="icon-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </header>
+
+    <!--Portada-->
+
+    <div class="container-all" id="move-content">
+
+    
+    <div class="article-container-cover">
+        <div class="container-info-cover">
+            <h1>¡La creatividad no tiene fronteras!</h1>
+            <p>Desarrolla el clásico juego del gusanito en Python con este tutorial completo.</p>
+        </div>
+    </div>
+
+    <div class="container-content">
+        <article>
+            <h1>Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo</h1>
+            <div class="videoContainer">
+                <iframe
+                    width="100%"
+                    height="315"
+                    src="https://www.youtube.com/embed/mVQWgXtCWFg"
+                    title="Video de YouTube"
+                    frameborder="0"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            
+            <script src="https://apis.google.com/js/platform.js"></script>
+            <div class="g-ytsubscribe" data-channelid="UCYmZ8F-o6VpZqQbUV7Ssq4g" data-layout="full" data-count="default"></div>
+            <h2>Instalar Pygame</h2>
+            <p>• Antes de comenzar, asegúrate de tener Pygame instalado. Abre tu terminal y ejecuta:</p>
+            <div id="pipCommandContainer">
+                <input type="text" id="pipCommand" class="copyCodigo" value="pip install pygame" readonly>
+                <button id="copyButton" onclick="copyToClipboard()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                function copyToClipboard() {
+                    var pipCommandInput = document.getElementById("pipCommand");
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <h2>Estructura Básica del Programa</h2>
+            <p>• Crea un nuevo archivo llamado snake_game.py y comencemos definiendo la estructura básica del programa:</p>
+            <div id="pipCommandContainer">
+                <textarea id="text2" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar2()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var pipCommandTexto = `import pygame\n`;
+                pipCommandTexto += `import random\n\n`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var pipCommandInput = document.getElementById("text2");
+                pipCommandInput.value = pipCommandTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                pipCommandInput.style.height = pipCommandInput.scrollHeight + 'px';
+        
+                function copiar2() {
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p>• Aquí, estamos importando las bibliotecas necesarias, inicializando Pygame y definiendo algunas constantes para colores y tamaños.</p>
+            
+            <h2>Paso 3: Crear la Clase Cuerpo</h2>
+            <div id="pipCommandContainer">
+                <textarea id="text3" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar3()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var pipCommandTexto = `class Cuerpo:\n`;
+                pipCommandTexto += `    def __init__(self, window):\n`;
+                pipCommandTexto += `        self.x = 0\n`;
+                pipCommandTexto += `        self.y = 0\n`;
+                pipCommandTexto += `        self.window = window\n`;
+                pipCommandTexto += `        self.dir = 0  # 0 right, 1 left, 2 down, 3 up\n\n`;
+                pipCommandTexto += `    def draw(self):\n`;
+                pipCommandTexto += `        pygame.draw.rect(self.window, (255, 255, 255), (self.x, self.y, 10, 10))\n\n`;
+                pipCommandTexto += `    def movement(self):\n`;
+                pipCommandTexto += `        if self.dir == 0:\n`;
+                pipCommandTexto += `            self.x += 10\n`;
+                pipCommandTexto += `        elif self.dir == 1:\n`;
+                pipCommandTexto += `            self.x -= 10\n`;
+                pipCommandTexto += `        elif self.dir == 2:\n`;
+                pipCommandTexto += `            self.y += 10\n`;
+                pipCommandTexto += `         elif self.dir == 3:\n`;
+                pipCommandTexto += `            self.y -= 10`;
+              
+                // Asignar la cadena al valor del campo de entrada
+                var pipCommandInput = document.getElementById("text3");
+                pipCommandInput.value = pipCommandTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                pipCommandInput.style.height = pipCommandInput.scrollHeight + 'px';
+        
+                function copiar3() {
+                    pipCommandInput.select();
+                    pipCommandInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p>• Aquí creamos la clase Cuerpo que representa cada segmento de la serpiente. Esta clase tiene un método draw para dibujar el segmento y un método movement para controlar su movimiento.</p>
+
+            <h2>Crear la Clase Food</h2>
+            <div id="teclasSonidosContainer">
+                <textarea id="text4" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar4()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var teclasSonidosTexto = `class food:\n`;
+                teclasSonidosTexto += `    def __init__(self, window):`;
+                teclasSonidosTexto += `        self.x = random.randrange(40) * 10\n`;
+                teclasSonidosTexto += `        self.y = random.randrange(40) * 10\n`;
+                teclasSonidosTexto += `        self.window = window\n\n`;
+                teclasSonidosTexto += `    def draw(self):\n`;
+                teclasSonidosTexto += `        pygame.draw.rect(self.window, (255, 0, 0), (self.x, self.y, 10, 10))\n\n`;
+                teclasSonidosTexto += `    def relocate(self):\n`;
+                teclasSonidosTexto += `        self.x = random.randrange(40) * 10\n`;
+                teclasSonidosTexto += `        self.y = random.randrange(40) * 10`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var teclasSonidosInput = document.getElementById("text4");
+                teclasSonidosInput.value = teclasSonidosTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                teclasSonidosInput.style.height = teclasSonidosInput.scrollHeight + 'px';
+        
+                function copiar4() {
+                    teclasSonidosInput.select();
+                    teclasSonidosInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p>• Aquí creamos la clase Food que representa la comida para la serpiente. Esta clase tiene un método draw para dibujar la comida y un método relocate para cambiar su posición.</p>    
+
+            <h2>Crear Funciones Auxiliares</h2>
+            <div id="tecladoSonidosContainer">
+                <textarea id="text5" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar5()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var tecladoSonidosTexto = `def redraw(window):\n`;
+                tecladoSonidosTexto += `    window.fill((0, 0, 0))\n`;
+                tecladoSonidosTexto += `    comida.draw()\n`;
+                tecladoSonidosTexto += `    for i in range(len(snake)):\n`;
+                tecladoSonidosTexto += `        snake[i].draw()\n\n`;
+                tecladoSonidosTexto += `def snake_ubicacion()\n`;
+                tecladoSonidosTexto += `    if(len(snake)) > 1:\n`;
+                tecladoSonidosTexto += `        for i in range(len(snake)-1):\n`;
+                tecladoSonidosTexto += `            snake[len(snake)-i-1].x = snake[len(snake)-i-2].x\n`;
+                tecladoSonidosTexto += `            snake[len(snake) - i - 1].y = snake[len(snake) - i - 2].y\n\n`;
+                tecladoSonidosTexto += `def Colision():\n`;
+                tecladoSonidosTexto += `    hit = False\n`;
+                tecladoSonidosTexto += `    if (len(snake)) > 1:\n`;
+                tecladoSonidosTexto += `        for i in range(len(snake) - 1):\n`;
+                tecladoSonidosTexto += `            if snake[0].x == snake[i + 1].x and snake[0].y == snake[i + 1].y:\n`;
+                tecladoSonidosTexto += `                hit = True\n`;
+                tecladoSonidosTexto += `    return hit`;
+        
+                // Asignar la cadena al valor del campo de entrada
+                var tecladoSonidosInput = document.getElementById("text5");
+                tecladoSonidosInput.value = tecladoSonidosTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                tecladoSonidosInput.style.height = tecladoSonidosInput.scrollHeight + 'px';
+        
+                function copiar5() {
+                    tecladoSonidosInput.select();
+                    tecladoSonidosInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+            <p>• Estas funciones auxiliares realizan tareas como redibujar la ventana, ajustar la ubicación de la serpiente y verificar colisiones.</p>
+            
+            <h2>Crear la Función Principal main</h2>
+            <div id="tecladoSonidosContainer">
+                <textarea id="text6" class="copyCodigo" readonly></textarea>
+                <button id="copyButton" onclick="copiar6()">
+                    <i class="fa fa-clone" aria-hidden="true"></i>
+                </button>
+            </div>
+        
+            <script>
+                // Construir la cadena con el contenido del bucle
+                var runTexto = `def main()`;
+                runTexto += `    global comida, snake\n`;
+                runTexto += `    window = pygame.display.set_mode((400, 400)))\n`;
+                runTexto += `    window.fill((0, 0, 0))\n`;
+                runTexto += `    pygame.display.set_caption("Snake")\n`;
+                runTexto += `    snake = [Cuerpo(window)]\n`;
+                runTexto += `    snake[0].draw()\n`;
+                runTexto += `    comida = food(window)\n`;
+                runTexto += `    redraw(window)\n`;
+                runTexto += `    run = True\n`;
+                runTexto += `    velocidad = 100\n`;
+                runTexto += `    while run:\n`;
+                runTexto += `         for event in pygame.event.get():\n`;
+                runTexto += `             if event.type == pygame.QUIT:\n`;
+                runTexto += `                 run = False\n`;
+                runTexto += `             if event.type == pygame.KEYDOWN:\n`;
+                runTexto += `                 if event.key == pygame.K_DOWN:\n`;
+                runTexto += `                     snake[0].dir = 2\n`;
+                runTexto += `                 if event.key == pygame.K_LEFT:\n`;
+                runTexto += `                     snake[0].dir = 1\n`;
+                runTexto += `                 if event.key == pygame.K_RIGHT\n`;
+                runTexto += `                     snake[0].dir = 0\n`;
+                runTexto += `                 if event.key == pygame.K_UP:\n`;
+                runTexto += `                     snake[0].dir = 3\n`;
+                runTexto += `        snake_ubicacion()\n`;
+                runTexto += `        snake[0].movement()\n`;
+                runTexto += `        redraw(window)\n`;
+                runTexto += `        pygame.display.update()\n`;
+                runTexto += `        pygame.time.delay(velocidad)\n\n`;
+                runTexto += `        if snake[0].x >= 400:\n`;
+                runTexto += `            snake[0].x = 0\n`;
+                runTexto += `        elif snake[0].x < 0:\n`;
+                runTexto += `            snake[0].x = 390\n\n`;
+                runTexto += `        if snake[0].y >= 400:\n`;
+                runTexto += `            snake[0].y = 0\n`;
+                runTexto += `        elif snake[0].y < 0:\n`;
+                runTexto += `            snake[0].y = 390\n\n`;
+                runTexto += `        if Colision():\n`;
+                runTexto += `            snake = [Cuerpo(window)]\n`;
+                runTexto += `            comida.relocate()\n`;
+                runTexto += `            velocidad = 100\n\n`;
+                runTexto += `        if snake[0].x == comida.x and snake[0].y == comida.y:\n`;
+                runTexto += `            if velocidad > 35:\n`;
+                runTexto += `                velocidad -= 5\n`;
+                runTexto += `            comida.relocate()\n`;
+                runTexto += `            snake.append(Cuerpo(window))\n`;
+                runTexto += `            snake_ubicacion()\n\n`;
+                runTexto += `main()\n`;
+                runTexto += `pygame.quit()`;
+    
+                // Asignar la cadena al valor del campo de entrada
+                var runInput = document.getElementById("text6");
+                runInput.value = runTexto;
+        
+                // Ajustar la altura del textarea según el contenido
+                runInput.style.height = runInput.scrollHeight + 'px';
+        
+                function copiar6() {
+                    runInput.select();
+                    runInput.setSelectionRange(0, 99999);
+        
+                    document.execCommand("copy");
+        
+                    alert("¡Texto copiado al portapapeles!");
+                }
+            </script>
+          
+            <h2>Ejecutar el Programa</h2>
+            <p>• Guarda el archivo y ejecútalo. Ahora deberías tener un juego Snake funcional en Pygame. Puedes controlar la serpiente con las teclas de flecha. ¡Diviértete modificando y mejorando el código!</p>
+            
+        </article>
+
+        <div class="container-aside">	
+
+            <aside>
+                <img src="img/mas.jpg" alt="">
+                <h2>Crea tu propio mundo de Minecraft con Ursina desde cero</h2>
+                <a href="Crea-tu-propio-mundo-de-Minecraft-con-Ursina-desde-cero.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas3.jpg" alt="">
+                <h2>Crear un Reproductor de Sonidos con Python y Pygame</h2>
+                <a href="Crear-un-Reproductor-de-Sonidos-con-Python-y-Pygame.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas4.jpg" alt="">
+                <h2>Domina las Operaciones Básicas - Suma, Resta, Multiplicación y División en Tu Código</h2>
+                <a href="Domina-las-Operaciones-Basicas-Suma-Resta-Multiplicacion-y-Division-en-Tu-Codigo.html"><button>leer más</button></a>
+            </aside>
+
+            <aside>
+                <img src="img/mas2.jpg" alt="">
+                <h2>Desarrollando el Clásico Juego del Gusanito en Python: Tutorial Completo 💻🎮</h2>
+                <a href="Desarrollando-el-Clásico-Juego-del-Gusanito-en-Python-tutorial-completo.html"><button>leer más</button></a>
+            </aside>
+
+        </div>
+    </div>
+
+    <div id="button-up">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+
+
+    <div class="container-footer">	
+
+        <footer>
+            <div class="logo-footer">
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <div class="g-ytsubscribe" data-channelid="UCYmZ8F-o6VpZqQbUV7Ssq4g" data-layout="full" data-count="default"></div>
+            </div>
+
+            <div class="redes-footer">
+                <a href="https://www.facebook.com/profile.php?id=100084146972020"><i class="fab fa-facebook-f icon-redes-footer"></i></a>
+                <a href="mailto:ltavo15963@gmail.com?subject=Asunto%20del%20mensaje" target="_blank"><i class="fab fa-google-plus-g icon-redes-footer"></i></a>
+                <a href="https://instagram.com/bymusrize?igshid=NGVhN2U2NjQ0Yg=="><i class="fab fa-instagram icon-redes-footer"></i></a>
+            </div>
+
+            <hr>
+            <h4>© 2023 EveryThing - Todos los Derechos Reservados</h4>
+
+        </footer>
+
+    </div>
+
+</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
